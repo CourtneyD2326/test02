@@ -21,6 +21,10 @@ jobs:
          python -m pip install --upgrade pip
          pip install pytest pytest-cov poetry
          pytest --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+      - name: Debug Step
+        run: | 
+          ls -l my_package
+          cat my_package/pyproject.toml
       - name: Build
         working-directory: my_package
         run: poetry build
